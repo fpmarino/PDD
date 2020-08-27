@@ -11,7 +11,7 @@ namespace ConsoleApp1
             int maxintentos = 2;
             while ((numeroElegido != intento)  && (intento <= maxintentos))
             {
-                Console.WriteLine("Ingrese un número del 1 al 20. Tenes 4 intentos: ");
+                Console.WriteLine("Ingrese un número del 1 al 20. Tenes 2 intentos: ");
                 intento = int.Parse(Console.ReadLine());
                 if (intento == numeroElegido)
                 {
