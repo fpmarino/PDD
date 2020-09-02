@@ -7,7 +7,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
 			
-			int intento = 3;
+			int intentos = 3;
 			int entrada;
 			byte i, adivinado;
 			string linea;
@@ -19,22 +19,22 @@ namespace ConsoleApp1
 			i = 1; adivinado = 0;
 			do
 			{
-				Console.Write("Ingrese un numero entre 1 y 20: ");
+				Console.Write("Ingrese un número entre 1 y 20: ");
 				linea = Console.ReadLine();
 				entrada = int.Parse(linea);
 
 				if ((entrada == numero))
 				{
-					Console.WriteLine("Adivinaste el numero!");
+					Console.WriteLine("Adivinaste el número!");
 					adivinado = 1;
 				}
 				
 				i++;
 			} 
-			while (((i <= intento) & (adivinado == 0)));
+			while (((i <= intentos) & (adivinado == 0)));
 			if ((adivinado == 0))
 			{
-				Console.Write("No adivinaste, el numero era: " + numero);
+				Console.Write("No adivinaste, el número era: " + numero);
 			}
 
 			
