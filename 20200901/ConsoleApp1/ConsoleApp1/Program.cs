@@ -8,8 +8,8 @@ namespace ConsoleApp1
         {
 			
 			int intentos = 3;
-			int entrada;
-			byte i, adivinado;
+			int entrada, i, adivinado;
+
 			string linea;
 
 	
