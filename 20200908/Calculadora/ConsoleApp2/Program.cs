@@ -7,10 +7,14 @@ namespace ConsoleApp2
         static void Main(string[] args)
         {
             Calculadora calculadora = new Calculadora();
+
             Console.WriteLine(calculadora.Sumar(5, 7));
             Console.WriteLine(calculadora.Restar(6,2));
             Console.WriteLine(calculadora.Multiplicar(4,5));
             Console.WriteLine(calculadora.Dividir(8,2));
+
+            CalculadoraCientifica cientifica = new CalculadoraCientifica();
+            Console.WriteLine(cientifica.Potencia(5, 3));   
         }
     }
 }
