@@ -10,6 +10,10 @@ namespace ConsoleApp1
             Console.WriteLine("Hello World!");
             Vehiculo miauto = new Auto();
             Auto otroauto = new Auto();
+
+            miauto.Marca = "Honda";
+            miauto.Modelo = "Civic";
+            ((Auto)miauto).Puertas = 5; 
         }
     }
 }

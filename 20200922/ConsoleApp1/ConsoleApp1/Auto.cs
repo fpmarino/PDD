@@ -6,7 +6,6 @@ namespace ConsoleApp1
 {
     public class Auto : Vehiculo
     { 
-        public string Marca{ get; set; }
-        public string Modelo { get; set; }
+        public int Puertas { get; set; }
     }
 }
