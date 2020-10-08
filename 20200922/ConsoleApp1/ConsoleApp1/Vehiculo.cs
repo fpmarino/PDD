@@ -4,8 +4,16 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    public class Vehiculo 
+    public abstract class Vehiculo 
     {
+        public string Marca { get; set;  }
+        public string Modelo { get; set; }
+        public Motor Motor { get; set; }
 
+        public abstract void Detener();
+        public void Arrancar()
+        {
+            Console.Write("El vehiculo arranco");
+        }
     }
 }

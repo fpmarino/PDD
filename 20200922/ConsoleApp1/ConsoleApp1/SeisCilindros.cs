@@ -4,8 +4,8 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    public class Auto : Vehiculo
+    public class SeisCilindros : Motor, IRepuesto
     {
-        public int Puertas { get; set; }
+        public decimal Precio { get; set; }
     }
 }

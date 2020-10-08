@@ -4,8 +4,10 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    public class Auto : Vehiculo
+    public  interface IAcuatico
     {
-        public int Puertas { get; set; }
+        int Velocidad { get; set; }
+
+        void Navegar(string destino);
     }
 }

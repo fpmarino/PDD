@@ -4,8 +4,8 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    public class Auto : Vehiculo
+    public abstract class Motor
     {
-        public int Puertas { get; set; }
+        public int Potencia { get; set; }
     }
 }

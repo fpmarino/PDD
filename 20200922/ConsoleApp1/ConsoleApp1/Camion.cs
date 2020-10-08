@@ -4,8 +4,7 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    public class Auto : Vehiculo
+    public class Camion : Auto
     {
-        public int Puertas { get; set; }
     }
 }
