@@ -23,29 +23,30 @@ namespace ConsoleApp1
             lista.Add("");
             lista.Add(new Auto());
 
-            List<int> listadenumeros = new List<int>();
+            List<int> listadenumeros = new List<int>(); //permite valores duplicados y estan ordenados como los voy agregando
             listadenumeros.Add(1);
             listadenumeros.Add(1);
             listadenumeros.Add(1);
 
-            HashSet<int> numerosunicos = new HashSet<int>();
+            HashSet<int> numerosunicos = new HashSet<int>(); //estan ordenados a traves del hash del valor que estoy agregando
             numerosunicos.Add(1);
             numerosunicos.Add(1);
             numerosunicos.Add(1);
             numerosunicos.Add(1);
 
-            Dictionary<int, string> personas = new Dictionary<int, string>();
+            Dictionary<int, string> personas = new Dictionary<int, string>(); //me permite asignar dos tipos de valores, clave y valor
             personas.Add(26994130, "Gabriel");
             personas.Add(5122111, "Facundo");
 
             personas.GetValueOrDefault(269944130);
 
+            Dictionary<string, Vehiculo> Autos = new Dictionary<string, Vehiculo>();
 
-            //Autos.Add("aa123aa", new Auto());
-            //Autos.Add("ab123aa", new Auto());
-            //Autos.Add("ab122aa", new Auto());
+            Autos.Add("aa123aa", new Auto());
+            Autos.Add("ab123aa", new Auto());
+            Autos.Add("ab122aa", new Auto());
 
-            //Autos.GetValueOrDefault("aa123aa");
+            Autos.GetValueOrDefault("aa123aa");
 
         }
 
