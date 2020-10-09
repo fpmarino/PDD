@@ -13,5 +13,16 @@ namespace ConsoleApp1
 
         public int IdUsuario { get; set; }
 
+        public Recursos() { }
+
+        public Recursos(int id, string nombre, Usuarios usuario)
+        {
+            this.Id = id;
+            this.Nombre = nombre;
+            this.Usuario = usuario;
+        }
+
+
+
     }
 }

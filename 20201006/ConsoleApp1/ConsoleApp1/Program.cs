@@ -10,7 +10,7 @@ namespace ConsoleApp1
 
             var ctx = new TareasDbContext();
 
-            ctx.Set<Usuario>().Add(new Usuario
+            ctx.Usuarios.Add(new Usuario
             {
                 UsuarioPK = 1,
                 Nombre = "Florencia",

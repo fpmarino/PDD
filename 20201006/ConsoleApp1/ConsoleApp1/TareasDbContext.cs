@@ -21,5 +21,8 @@ namespace ConsoleApp1
             modelBuilder.Entity<Tarea>()
                 .ToTable("Tarea");
         }
+
+        public DbSet<Usuario> Usuarios { get; set; }
+
     }
 }
