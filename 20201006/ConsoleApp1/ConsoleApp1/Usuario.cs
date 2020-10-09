@@ -10,7 +10,8 @@ namespace ConsoleApp1
 {
     class Usuario
     {
-        //[Key] public int UsuarioPK { get; set; }
+        [Key]
+        public int UsuarioPK { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
         [MaxLength(50)]

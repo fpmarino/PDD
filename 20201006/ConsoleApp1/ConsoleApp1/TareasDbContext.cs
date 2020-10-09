@@ -18,6 +18,8 @@ namespace ConsoleApp1
             modelBuilder.Entity<Usuario>()
                 .ToTable("Usuario")
                 .Property(p=> p.Clave);
+            modelBuilder.Entity<Tarea>()
+                .ToTable("Tarea");
         }
     }
 }
