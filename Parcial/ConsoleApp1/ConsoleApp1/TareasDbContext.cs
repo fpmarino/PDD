@@ -19,5 +19,11 @@ namespace ConsoleApp1
             modelBuilder.Entity<Recursos>().ToTable("Recurso");
             modelBuilder.Entity<Detalles>().ToTable("Detalle");
         }
+
+        public DbSet<Usuarios> Usuario { get; set; }
+        public DbSet<Tareas> Tarea { get; set; }
+        public DbSet<Recursos> Recurso { get; set; }
+        public DbSet<Detalles> Detalle { get; set; }
+
     }
 }
