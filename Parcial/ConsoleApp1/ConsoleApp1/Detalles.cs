@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    public class Detalle
+    public class Detalles
     {
         public int Id { get; set; }
         public string Fecha { get; set; }

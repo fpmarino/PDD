@@ -11,5 +11,13 @@ namespace ConsoleApp1
         {
             optionsBuilder.UseSqlite("Data Source = tareas.db");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Usuarios>().ToTable("Usuario");
+            modelBuilder.Entity<Tareas>().ToTable("Tarea");
+            modelBuilder.Entity<Recursos>().ToTable("Recurso");
+            modelBuilder.Entity<Detalles>().ToTable("Detalle");
+        }
     }
 }
