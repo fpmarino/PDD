@@ -11,5 +11,9 @@ namespace ConsoleApp1
         {
         
         }
+        protected override void Detener()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

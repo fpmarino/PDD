@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    public class IRepuesto
+    public interface IRepuesto
     {
         decimal Precio { get; set; }
     }

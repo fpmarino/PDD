@@ -4,12 +4,11 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    public class Camion : Vehiculo 
+    class Mecanico
     {
-        protected override void Detener()
+        public void Arreglar (IRepuesto repuesto)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(repuesto.Precio);
         }
     }
 }
-
