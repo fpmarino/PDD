@@ -22,7 +22,7 @@ namespace ConsoleApp1
                 .ToTable("Tarea");
         }
 
-        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
 
     }
 }
