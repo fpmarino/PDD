@@ -16,29 +16,28 @@ namespace ConsoleApp1
 
         public static void EF()
         {
-            AppContext ctx = new AppContext();
+            var ctx = new AppContext();
 
             var lista = ctx.Actividades.ToList();
-            var lista2 = ctx.Actividades.Where(i => i.Fecha < DateTime.Now).ToList();
+            var lista2 = ctx.Actividades.Where(i=> i.Fecha<DateTime.Now).ToList();
 
             Actividad actividad = lista[0];
             actividad.Nombre = "nuevo nombre";
-
 
             var actividad1 = ctx.Actividades.Where(i => i.Id == 15).First();
 
             ctx.Actividades.Remove(actividad1);
 
-            ctx.Actividades.Add(new Actividad { Lugar = "caba", Nombre = "Clase" });
-            ctx.Actividades.Add(new Actividad { Lugar = "caba", Nombre = "Clase" });
-            ctx.Actividades.Add(new Actividad { Lugar = "caba", Nombre = "Clase" });
-            ctx.Actividades.Add(new Actividad { Lugar = "caba", Nombre = "Clase" });
-            ctx.Actividades.Add(new Actividad { Lugar = "caba", Nombre = "Clase" });
+            ctx.Actividades.Add(new Actividad { Lugar = "CABA", Nombre = "Clase" });
+            ctx.Actividades.Add(new Actividad { Lugar = "CABA", Nombre = "Clase" });
+            ctx.Actividades.Add(new Actividad { Lugar = "CABA", Nombre = "Clase" });
+            ctx.Actividades.Add(new Actividad { Lugar = "CABA", Nombre = "Clase" });
+            ctx.Actividades.Add(new Actividad { Lugar = "CABA", Nombre = "Clase" });
 
             ctx.SaveChanges();
 
         }
-
+        
         public static void Agregado(string orden)
         {
             List<int> numeros = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 };
