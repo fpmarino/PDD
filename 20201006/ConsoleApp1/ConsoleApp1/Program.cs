@@ -27,7 +27,7 @@ namespace ConsoleApp1
 
             usuario.Nombre = "Facu";
 
-            var usuario2 = ctx.Usuario.Where(i => i.UsuarioPK == 3).FirstOrDefault();
+            var usuario2 = ctx.Usuario.Where(i => i.UsuarioPK == 3).FirstOrDefault(); //trae el primero que aparezca y si no hay ninguno devuelve null
             if(usuario2 != null)
             {
                 usuario2.Nombre = "Prueba";
