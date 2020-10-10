@@ -9,51 +9,42 @@ namespace ConsoleApp1
         {
             Console.WriteLine("Hello World!");
 
-            var ctx = new TareasDbContext();
+            InsertarDetalles();
+            InsertarTareas();
+            Consultar();
+            Actualizacion();
+            Borrado();
         }
 
         static void Borrado()
         {
             var ctx = new TareasDbContext();
-            var usuario = ctx.Usuario.Where(i => i.UsuarioPK == 1).Single();
-            ctx.Usuario.Remove(usuario);
-            ctx.SaveChanges();
-        }
-        static void Actualizacion2()
-        {
-            var ctx = new TareasDbContext();
-            var usuario = ctx.Usuario.Where(i => i.UsuarioPK == 1).Single(); //le dice al entityframework que devuelva un unico registro
-
-            usuario.Nombre = "Facu";
-
-            var usuario2 = ctx.Usuario.Where(i => i.UsuarioPK == 3).FirstOrDefault(); //trae el primero que aparezca y si no hay ninguno devuelve null
-            if (usuario2 != null)
-            {
-                usuario2.Nombre = "Prueba";
-            }
-
-            var usuario3 = ctx.Usuario.Where(i => i.Nombre == "Gabriel" && i.UsuarioPK < 4).FirstOrDefault();
-            if (usuario3 != null)
-            {
-                usuario3.Nombre = "Francsico";
-            }
+            var tarea = ctx.Tarea.Where(i => i.Id == 1).Single();
+            ctx.Tarea.Remove(tarea);
             ctx.SaveChanges();
         }
 
         static void Actualizacion()
         {
             var ctx = new TareasDbContext();
-            var lista = ctx.Usuario.Where(i => i.UsuarioPK == 1).ToList();
-            lista[0].Nombre = "Facu";
+            var lista = ctx.Tarea.Where(i => i.Id == 1).ToList();
+            lista[0].Titulo = "Tarea 1";
             ctx.SaveChanges();
         }
         static void Consultar()
         {
             var ctx = new TareasDbContext();
-            var lista = ctx.Usuario.ToList();
-            foreach (var item in lista)
+
+            var lista1 = ctx.Usuario.ToList();
+            foreach (var item in lista1)
             {
                 Console.WriteLine($"Nombre: {item.Nombre}");
+            }           
+            
+            var lista2 = ctx.Tarea.ToList();
+            foreach (var item in lista2)
+            {
+                Console.WriteLine($"Titulo: {item.Titulo}");
             }
 
         }
@@ -101,6 +92,37 @@ namespace ConsoleApp1
                 IdTareas = 2
 
             });
+            ctx.SaveChanges();
+
+        }
+
+        static void InsertarTareas()
+        {
+            var ctx = new TareasDbContext();
+
+            ctx.Tarea.Add(new Tareas
+            {
+                Id = 1,
+                Titulo = "Tarea 1",
+                Vencimiento = "55 dias",
+                Estimacion = 50,
+                IdRecursos = 4,
+                Estado = true
+
+            });
+
+            ctx.Tarea.Add(new Tareas
+            {
+                Id = 2,
+                Titulo = "Tarea 2",
+                Vencimiento = "34 dias",
+                Estimacion = 40,
+                IdRecursos = 2,
+                Estado = false
+
+            });
+
+
             ctx.SaveChanges();
 
         }
