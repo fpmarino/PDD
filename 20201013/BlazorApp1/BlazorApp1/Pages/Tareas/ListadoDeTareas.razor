@@ -1,0 +1,81 @@
+﻿@page "/Tareas/ListadoDeTareas"
+@using BlazorApp1.Data
+@inject TareasService TareaServicio
+@inject NavigationManager navigation
+@inject IJSRuntime JsRuntime
+
+<h3>Listado De Tareas</h3>
+
+<button class="btn" @onclick="()=>Editar(0)">Nueva Tarea</button>
+
+@if (Tarea == null)
+{
+
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Vencimiento</th>
+                <th>Estimacion</th>
+                <th>Estado</th>
+
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Tarea)
+            {
+                <tr>
+                    <td>@item.Titulo</td>
+                    <td>@item.Vencimiento</td>
+                    <td>@item.Estimacion</td>
+                    <td>@item.Estado</td>
+                    <td><button class="btn" @onclick="()=>Editar(item.Id)">Editar</button> <button class="btn" @onclick="()=>Borrar(item.Id)">Borrar</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+
+
+
+
+@code {
+
+
+    /*protected override async Task OnInitializedAsync()
+    {
+        tareas = TareaServicio.getTareas();
+    }
+    */
+    private List<Tareas> Tarea;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Tarea = await TareaServicio.GetAll();
+    }
+
+    protected void Editar(int id)
+    {
+        navigation.NavigateTo("/Tareas/TipoTarea/" + id);
+    }
+
+    async Task Borrar(int id)
+    {
+        bool confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "Desea eliminar el usuario?");
+        if (confirmed)
+        {
+            await TareaServicio.Remove(id);
+            Tarea = await TareaServicio.GetAll();
+        }
+    }
+
+
+
+
+
+}

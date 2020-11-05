@@ -1,5 +1,44 @@
-﻿<h3>TipoUsuario</h3>
+﻿@page "/Usuarios/TipoUsuario/{id:int}"
+@using BlazorApp1.Data
+@inject UsuariosService service
+@inject NavigationManager navigation
+
+<h3>Crear Usuario</h3>
+
+<EditForm Model="@Modelo" OnValidSubmit="@Guardar">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+
+    <InputText @bind-Value="Modelo.Nombre" />
+    <InputText @bind-Value="Modelo.Clave" />
+
+    <button type="submit">Guardar</button>
+</EditForm>
+
 
 @code {
+    [Parameter]
+    public int id { get; set; }
 
+    public Usuarios Modelo { get; set; } = new Usuarios();
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (id > 0)
+        {
+            Modelo = await service.Get(id);
+        }
+        else
+        {
+            Modelo = new Usuarios();
+        }
+    }
+
+
+    private async void Guardar()
+    {
+        await service.Save(Modelo);
+        navigation.NavigateTo("Usuarios/ListadoDeUsuarios");
+    }
 }
