@@ -1,34 +1,27 @@
-﻿using BlazorApp1.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace BlazorApp1.Data
 {
     public class Recursos
     {
-        [Key]
-        public int id { get; set; }
-        public String nombre { get; set; }
+
+        public int Id { get; set; }
+
+        public string Nombre { get; set; }
+        public Usuarios Usuario { get; set; }
 
         public int IdUsuario { get; set; }
-        public Usuarios User { get; set; }
 
+        public Recursos() { }
 
-        public Recursos() { }   //constructor implicito 
-
-
-        public Recursos(int id, string nombre, int IdUsuario, Usuarios usuario)
+        public Recursos(int id, string nombre, Usuarios usuario)
         {
-            this.id = id;
-            this.nombre = nombre;
-            this.IdUsuario = IdUsuario;
-            this.User = usuario;
+            this.Id = id;
+            this.Nombre = nombre;
+            this.Usuario = usuario;
         }
-
-
-
-
     }
 }

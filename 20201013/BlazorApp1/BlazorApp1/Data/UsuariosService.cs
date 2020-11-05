@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 namespace BlazorApp1.Data
 {
@@ -10,39 +10,39 @@ namespace BlazorApp1.Data
     {
         public List<Usuarios> getUsuarios()
         {
-            var ctx = new DbContext();
-            var lista = ctx.Usuarios.ToList();
+            var ctx = new DataContext();
+            var lista = ctx.Usuario.ToList();
 
             return lista;
 
         }
 
-        private DbContext context;
+        private DataContext context;
 
-        public UsuariosService(DbContext _context)
+        public UsuariosService(DataContext _context)
         {
             context = _context;
         }
 
         public async Task<Usuarios> Get(int id)
         {
-            return await context.Usuarios.Where(i => i.id == id).SingleAsync();
+            return await context.Usuario.Where(i => i.Id == id).SingleAsync();
         }
 
         public async Task<List<Usuarios>> GetAll()
         {
-            return await context.Usuarios.ToListAsync();
+            return await context.Usuario.ToListAsync();
         }
 
         public async Task<Usuarios> Save(Usuarios value)
         {
-            if (value.id == 0)
+            if (value.Id == 0)
             {
-                await context.Usuarios.AddAsync(value);
+                await context.Usuario.AddAsync(value);
             }
             else
             {
-                context.Usuarios.Update(value);
+                context.Usuario.Update(value);
             }
             await context.SaveChangesAsync();
             return value;
@@ -51,17 +51,12 @@ namespace BlazorApp1.Data
         public async Task<bool> Remove(int id)
         {
 
-            var entidad = await context.Usuarios.Where(i => i.id == id).SingleAsync();
-            context.Usuarios.Remove(entidad);
+            var entidad = await context.Usuario.Where(i => i.Id == id).SingleAsync();
+            context.Usuario.Remove(entidad);
             await context.SaveChangesAsync();
             return true;
 
         }
-
-
-
-
-
 
     }
 }

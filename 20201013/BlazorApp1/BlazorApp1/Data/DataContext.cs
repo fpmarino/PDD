@@ -1,19 +1,16 @@
-﻿using BlazorApp1.Pages;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace BlazorApp1.Data
-
 {
-    public class dbContext:DbContext
+    public class DataContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
-            optionsBuilder.UseSqlite("Data Source=tareas.db");
-
+            optionsBuilder.UseSqlite("Data Source = tareas.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -22,20 +19,11 @@ namespace BlazorApp1.Data
             modelBuilder.Entity<Tareas>().ToTable("Tarea");
             modelBuilder.Entity<Recursos>().ToTable("Recurso");
             modelBuilder.Entity<Detalles>().ToTable("Detalle");
-
         }
 
-
-
-
-        public DbSet<Usuarios> Usuarios { get; set; }
-        public DbSet<Tareas> Tareas { get; set; }
-        public DbSet<Recursos> Recursos { get; set; }
-        public DbSet<Detalles> Detalles { get; set; }
-
-
-
-
+        public DbSet<Usuarios> Usuario { get; set; }
+        public DbSet<Tareas> Tarea { get; set; }
+        public DbSet<Recursos> Recurso { get; set; }
+        public DbSet<Detalles> Detalle { get; set; }
     }
-
 }

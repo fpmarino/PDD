@@ -8,42 +8,41 @@ namespace BlazorApp1.Data
 {
     public class DetallesService
     {
-
         public List<Detalles> getDetalles()
         {
-            var ctx = new DbContext();
-            var lista = ctx.Detalles.ToList();
+            var ctx = new DataContext();
+            var lista = ctx.Detalle.ToList();
             return lista;
 
         }
 
 
-        private DbContext context;
+        private DataContext context;
 
-        public DetallesService(DbContext _context)
+        public DetallesService(DataContext _context)
         {
             context = _context;
         }
 
         public async Task<Detalles> Get(int id)
         {
-            return await context.Detalles.Where(i => i.id == id).SingleAsync();
+            return await context.Detalle.Where(i => i.id == id).SingleAsync();
         }
 
         public async Task<List<Detalles>> GetAll()
         {
-            return await context.Detalles.ToListAsync();
+            return await context.Detalle.ToListAsync();
         }
 
         public async Task<Detalles> Save(Detalles value)
         {
             if (value.id == 0)
             {
-                await context.Detalles.AddAsync(value);
+                await context.Detalle.AddAsync(value);
             }
             else
             {
-                context.Detalles.Update(value);
+                context.Detalle.Update(value);
             }
             await context.SaveChangesAsync();
             return value;
@@ -52,15 +51,11 @@ namespace BlazorApp1.Data
         public async Task<bool> Remove(int id)
         {
 
-            var entidad = await context.Detalles.Where(i => i.id == id).SingleAsync();
-            context.Detalles.Remove(entidad);
+            var entidad = await context.Detalle.Where(i => i.id == id).SingleAsync();
+            context.Detalle.Remove(entidad);
             await context.SaveChangesAsync();
             return true;
 
         }
-
-
-
     }
-
 }

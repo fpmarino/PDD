@@ -1,38 +1,31 @@
-﻿using BlazorApp1.Pages;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace BlazorApp1.Data
 {
     public class Tareas
     {
-        [Key]
-        public int id { get; set; }
-        public String titulo { get; set; }
-        public String vencimiento { get; set; }
-        public String estimacion { get; set; }
+        public int Id { get; set; }
+        public string Titulo { get; set; }
+        public string Vencimiento { get; set; }
+        public int Estimacion { get; set; }
+        public Recursos Responsable { get; set; }
         public int IdRecursos { get; set; }
-        public Recursos responsable { get; set; }
-        public bool estado { get; set; }
+        public bool Estado { get; set; }
 
 
-        public Tareas() { } 
+        public Tareas() { }
 
-        public Tareas(int id, string titulo, string vencimiento, string estimacion, int IdRecursos, Recursos responsable, bool estado)
+        public Tareas(int id, string titulo, string vencimiento, int estimacion, Recursos responsable, bool estado)
         {
-            this.id = id;
-            this.titulo = titulo;
-            this.vencimiento = vencimiento;
-            this.estimacion = estimacion;
-            this.IdRecursos = IdRecursos;
-            this.responsable = responsable;
-            this.estado = estado;
+            this.Id = id;
+            this.Titulo = titulo;
+            this.Vencimiento = vencimiento;
+            this.Estimacion = estimacion;
+            this.Responsable = responsable;
+            this.Estado = estado;
         }
-
-  
-
-
     }
 }

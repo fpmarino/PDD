@@ -1,9 +1,8 @@
-﻿using BlazorApp1.Pages;
-using Microsoft.VisualBasic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace BlazorApp1.Data
 {
@@ -20,7 +19,7 @@ namespace BlazorApp1.Data
         public int IdTarea { get; set; }
         public Tareas Tarea { get; set; }
 
-        public Detalles() { }  
+        public Detalles() { }
 
 
         public Detalles(int id, string fecha, string tiempo, int IdRecurso, Recursos recurso, int IdTarea, Tareas tarea)
