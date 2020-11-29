@@ -11,7 +11,7 @@ namespace ClassLibrary1.Entidades
         public string Titulo { get; set; }
         public string Vencimiento { get; set; }
         public string Estimacion { get; set; }
-        //public Recursos Responsable { get; set; }
+        public Recursos Responsable { get; set; }
         public int IdRecursos { get; set; }
         public bool Estado { get; set; }
 

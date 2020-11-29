@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1.Entidades
 {
-    class Recursos
+    public class Recursos
     {
 
         public int Id { get; set; }

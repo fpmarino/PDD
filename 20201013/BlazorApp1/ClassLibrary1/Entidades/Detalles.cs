@@ -4,10 +4,10 @@ using System.Text;
 
 namespace ClassLibrary1.Entidades
 {
-    class Detalles
+    public class Detalles
     {
       
-        public int id { get; set; }
+        public int Id { get; set; }
         public string Fecha { get; set; }
         public string Tiempo { get; set; }
 
@@ -20,9 +20,9 @@ namespace ClassLibrary1.Entidades
         public Detalles() { }
 
 
-        public Detalles(int id, string fecha, string tiempo, int IdRecurso, Recursos recurso, int IdTarea, Tareas tarea)
+        public Detalles(int Id, string fecha, string tiempo, int IdRecurso, Recursos recurso, int IdTarea, Tareas tarea)
         {
-            this.id = id;
+            this.Id = Id;
             this.Fecha = fecha;
             this.Tiempo = tiempo;
             this.IdRecurso = IdRecurso;
