@@ -1,0 +1,80 @@
+﻿@page "/Tareas/TipoTarea/{id:int}"
+@using BlazorApp1.Data
+@inject TareasService Tareas
+@inject RecursosService Recursos
+@inject NavigationManager navigation
+
+<h3>Crear Tarea</h3>
+
+<EditForm Model="@Modelo" OnValidSubmit="@Guardar">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+
+
+    <div class="form-group row">
+
+        <div class="col-sm-10">
+            <InputText @bind-Value="Modelo.Titulo" />
+            <InputText @bind-Value="Modelo.Vencimiento" />
+            <InputText @bind-Value="Modelo.Estimacion" />
+
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <InputSelect @bind-Value="idrecurso">
+            <option value="0">Elija un Usuario</option>
+            @foreach (var item in recurso)
+            {
+                <option value="@item.Id">@item.Nombre</option>
+            }
+        </InputSelect>
+    </div>
+
+
+
+
+
+
+
+
+    <button type="submit">Guardar</button>
+</EditForm>
+
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    public Tareas Modelo { get; set; } = new Tareas();
+
+    public string idrecurso { get; set; }
+
+    private List<Recursos> recurso = new List<Recursos>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (id > 0)
+        {
+            Modelo = await Tareas.Get(id);
+            idrecurso = Modelo.responsableid.ToString();
+        }
+        else
+        {
+            Modelo = new Tareas();
+        }
+
+        recurso = await Recursos.GetAll();
+
+    }
+
+
+    private async void Guardar()
+    {
+        Modelo.responsableid = int.Parse(idrecurso);
+        await Tareas.Save(Modelo);
+        navigation.NavigateTo("Tareas/ListadoDeTareas");
+    }
+}
