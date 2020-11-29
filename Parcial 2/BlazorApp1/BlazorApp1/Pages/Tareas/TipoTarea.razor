@@ -59,7 +59,7 @@
         if (id > 0)
         {
             Modelo = await Tareas.Get(id);
-            idrecurso = Modelo.responsableid.ToString();
+            idrecurso = Modelo.Responsable.ToString();
         }
         else
         {
@@ -73,7 +73,7 @@
 
     private async void Guardar()
     {
-        Modelo.responsableid = int.Parse(idrecurso);
+       // Modelo.Responsable = int.Parse(idrecurso);
         await Tareas.Save(Modelo);
         navigation.NavigateTo("Tareas/ListadoDeTareas");
     }

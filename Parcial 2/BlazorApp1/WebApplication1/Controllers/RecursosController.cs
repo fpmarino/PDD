@@ -29,13 +29,13 @@ namespace WebApplication1.Controllers
 
         public List<Recursos> Get()
         {
-            return _context.Recursos.Include(i => i.User).ToList();
+            return _context.Recursos.Include(i => i.Usuario).ToList();
         }
 
         [HttpGet("{id}")]
         public Recursos Get(int id)
         {
-            return _context.Recursos.Where(i => i.id == id).Single();
+            return _context.Recursos.Where(i => i.Id == id).Single();
         }
 
 

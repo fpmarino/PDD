@@ -33,7 +33,7 @@ namespace WebApplication1.Controllers
         [HttpGet("{id}")]
         public Usuarios Get(int id)
         {
-            return _context.Usuarios.Where(i => i.id == id).Single();
+            return _context.Usuarios.Where(i => i.Id == id).Single();
         }
 
 
